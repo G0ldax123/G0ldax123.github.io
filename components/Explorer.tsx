@@ -9,32 +9,32 @@ const explorerItems = [
   {
     name: '개발.md',
     path: '/dev',
-    icon: 'markdown.svg',
+    icon: 'markdown_icon.svg',
   },
   {
     name: 'CTF-Wargame.md',
     path: '/ctf',
-    icon: 'markdown.svg',
+    icon: 'markdown_icon.svg',
   },
   {
     name: 'BugBounty.md',
     path: '/bugbounty',
-    icon: 'markdown.svg',
+    icon: 'markdown_icon.svg',
   },
   {
     name: '블로그-기술문서.md',
     path: '/blog',
-    icon: 'markdown.svg',
+    icon: 'markdown_icon.svg',
   },
   {
     name: '논문-컨퍼런스.md',
     path: '/paper',
-    icon: 'markdown.svg',
+    icon: 'markdown_icon.svg',
   },
   {
     name: '공모전-자격증.md',
     path: '/cert',
-    icon: 'markdown.svg',
+    icon: 'markdown_icon.svg',
   },
 ];
 

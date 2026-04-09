@@ -7,28 +7,24 @@ import '@/styles/themes.css';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Nitin Ranganath | Portfolio',
-    template: 'Nitin Ranganath | %s',
+    default: 'ax123 | blog',
+    template: 'ax123 | %s',
   },
   description:
-    "Nitin Ranganath is an avid full stack web developer building websites and applications you'd love to use",
+    "ax123's blog",
   keywords: [
-    'nitin ranganath',
-    'nitin',
-    'ranganath',
-    'web developer portfolio',
-    'nitin web developer',
-    'nitin developer',
-    'mern stack',
-    'nitin ranganath portfolio',
-    'vscode-portfolio',
+    'ax123',
+    'blog',
+    'information security',
+    'CTF',
+    'BugBounty',
+    'wargame'
   ],
   openGraph: {
-    title: "Nitin Ranganath's Portfolio",
+    title: "ax123 | blog",
     description:
-      "A full-stack developer building websites that you'd like to use.",
-    images: ['https://imgur.com/4zi5KkQ.png'],
-    url: 'https://vscode-portfolio.vercel.app',
+      "ax123's blog",
+    url: 'https://g0ldax123.github.io',
   },
   twitter: {
     card: 'summary_large_image',
