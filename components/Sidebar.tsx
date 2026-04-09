@@ -13,6 +13,7 @@ import {
 } from 'react-icons/vsc';
 
 import styles from '@/styles/Sidebar.module.css';
+import { contentSections } from '@/data/navigation';
 
 const sidebarTopItems = [
   { Icon: VscFiles, path: '/' },
@@ -29,40 +30,42 @@ const sidebarBottomItems = [
 
 const Sidebar = () => {
   const pathname = usePathname();
+  const contentPaths = ['/', ...contentSections.map((item) => item.path)];
+  const isContentRoute = contentPaths.includes(pathname);
 
   return (
     <aside className={styles.sidebar}>
       <div className={styles.sidebarTop}>
-        {sidebarTopItems.map(({ Icon, path }) => (
-          <Link href={path} key={path}>
-            <div
-              className={`${styles.iconContainer} ${
-                pathname === path && styles.active
-              }`}
-            >
-              <Icon
-                size={16}
-                fill={
-                  pathname === path
-                    ? 'rgb(225, 228, 232)'
-                    : 'rgb(106, 115, 125)'
-                }
-                className={styles.icon}
-              />
-            </div>
-          </Link>
-        ))}
+        {sidebarTopItems.map(({ Icon, path }) => {
+          const isActive = path === '/' ? isContentRoute : false;
+
+          return (
+            <Link href={path} key={path}>
+              <div
+                className={`${styles.iconContainer} ${
+                  isActive && styles.active
+                }`}
+              >
+                <Icon
+                  size={16}
+                  fill={
+                    isActive
+                      ? 'rgb(225, 228, 232)'
+                      : 'rgb(106, 115, 125)'
+                  }
+                  className={styles.icon}
+                />
+              </div>
+            </Link>
+          );
+        })}
       </div>
       <div className={styles.sidebarBottom}>
         {sidebarBottomItems.map(({ Icon, path }) => (
           <div className={styles.iconContainer} key={path}>
             <Link href={path}>
               <Icon
-                fill={
-                  pathname === path
-                    ? 'rgb(225, 228, 232)'
-                    : 'rgb(106, 115, 125)'
-                }
+                fill={'rgb(106, 115, 125)'}
                 className={styles.icon}
               />
             </Link>

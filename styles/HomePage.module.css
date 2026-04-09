@@ -1,4 +1,4 @@
-/* Home Page - Clean Centered Design */
+﻿/* Home Page - Clean Centered Design */
 
 .page {
   width: 100%;
@@ -28,7 +28,7 @@
 
 .container {
   width: 100%;
-  max-width: 640px;
+  max-width: 760px;
   position: relative;
   z-index: 1;
 }
@@ -41,7 +41,6 @@
   gap: 32px;
 }
 
-/* Header */
 .header {
   margin-bottom: 8px;
 }
@@ -51,21 +50,11 @@
   opacity: 0.8;
 }
 
-/* Intro Section */
 .intro {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
-}
-
-.greeting {
-  margin: 0;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.4);
-  font-family: var(--font-mono);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
 }
 
 .name {
@@ -98,7 +87,7 @@
   opacity: 0.6;
 }
 
- .description {
+.description {
   margin: 0;
   font-size: 15px;
   line-height: 1.8;
@@ -106,7 +95,6 @@
   max-width: 700px;
 }
 
-/* Actions */
 .actions {
   display: flex;
   gap: 12px;
@@ -115,8 +103,7 @@
   margin-top: 8px;
 }
 
-.primaryAction,
-.secondaryAction {
+.primaryAction {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -126,9 +113,6 @@
   font-weight: 500;
   text-decoration: none;
   transition: all 0.2s ease;
-}
-
-.primaryAction {
   background: var(--accent-color);
   color: white;
   box-shadow: 0 4px 20px rgba(var(--accent-color-rgb), 0.3);
@@ -139,26 +123,16 @@
   box-shadow: 0 6px 24px rgba(var(--accent-color-rgb), 0.4);
 }
 
-.secondaryAction {
-  background: rgba(255, 255, 255, 0.03);
-  color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.secondaryAction:hover {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-}
-
-/* Links */
 .links {
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
   margin-top: 16px;
   padding-top: 32px;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
+  width: 100%;
 }
 
 .link {
@@ -178,12 +152,6 @@
   background: rgba(255, 255, 255, 0.05);
 }
 
-.linkSeparator {
-  color: rgba(255, 255, 255, 0.15);
-  font-size: 12px;
-}
-
-/* Responsive */
 @media (max-width: 640px) {
   .page {
     padding: 40px 24px;
@@ -203,13 +171,15 @@
   }
 
   .actions {
-    flex-direction: column;
     width: 100%;
   }
 
-  .primaryAction,
-  .secondaryAction {
+  .primaryAction {
     justify-content: center;
     width: 100%;
+  }
+
+  .links {
+    justify-content: flex-start;
   }
 }
