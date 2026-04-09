@@ -1,4 +1,4 @@
-.explorer {
+﻿.explorer {
   background: var(--explorer-bg);
   width: 18vw;
   color: rgb(225, 228, 232);
@@ -15,30 +15,39 @@
   margin-bottom: 0.75rem;
 }
 
-.heading {
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  padding: 0 0.5rem;
+.sectionList {
+  padding: 0.25rem 0;
 }
 
-.checkbox {
-  position: absolute;
-  opacity: 0;
-  z-index: -1;
+.sectionItem {
+  margin-bottom: 0.1rem;
+}
+
+.folderButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.22rem 0.65rem;
+  background: transparent;
+  border: 0;
+  color: white;
+  font: inherit;
+  font-size: 0.9rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.folderButton:hover {
+  background: var(--explorer-hover-bg);
 }
 
 .files {
-  padding: 0.5rem 0;
-  cursor: pointer;
+  padding: 0.1rem 0 0.2rem;
 }
 
 .file {
-  padding: 0.2rem 1rem;
+  padding: 0.2rem 0.95rem 0.2rem 2rem;
   display: flex;
   align-items: center;
   font-size: 0.875rem;
@@ -56,6 +65,12 @@
 
 .chevron {
   transition: transform 0.2s;
+  flex-shrink: 0;
+}
+
+.folderIcon {
+  color: #dcb67a;
+  flex-shrink: 0;
 }
 
 @media screen and (min-width: 2000px) {

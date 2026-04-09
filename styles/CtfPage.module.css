@@ -1,0 +1,276 @@
+﻿.page {
+  width: 100%;
+  min-height: 100%;
+  background: var(--main-bg);
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 32px 56px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--explorer-border);
+}
+
+.headerMain {
+  display: flex;
+  gap: 16px;
+  min-width: 0;
+}
+
+.iconWrapper {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--accent-color-rgb), 0.18),
+    rgba(var(--accent-color-rgb), 0.05)
+  );
+  border: 1px solid rgba(var(--accent-color-rgb), 0.22);
+}
+
+.icon {
+  color: var(--accent-color);
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.headerTop {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text-color);
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 12px;
+  font-family: var(--font-mono);
+}
+
+.stat svg {
+  color: var(--accent-color);
+}
+
+.divider {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 620px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 14px;
+}
+
+.inlineCode {
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+  color: var(--text-color);
+}
+
+.repoLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.84);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--explorer-border);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.repoLink:hover {
+  transform: translateY(-1px);
+  color: white;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card {
+  display: flex;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  text-decoration: none;
+}
+
+.card:last-child {
+  border-bottom: 0;
+}
+
+.cardIndex {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.42);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.cardBody {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badge,
+.badgeMuted {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+}
+
+.badge {
+  color: var(--accent-color);
+  background: rgba(var(--accent-color-rgb), 0.1);
+  border: 1px solid rgba(var(--accent-color-rgb), 0.2);
+}
+
+.badgeMuted {
+  color: rgba(255, 255, 255, 0.62);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.filename {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.42);
+  font-family: var(--font-mono);
+}
+
+.cardTitle {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.cardPath {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 13px;
+  font-family: var(--font-mono);
+  word-break: break-all;
+}
+
+.card:hover .cardTitle {
+  color: var(--accent-color);
+}
+
+.card:hover .cardIndex {
+  color: var(--accent-color);
+  border-color: rgba(var(--accent-color-rgb), 0.28);
+  background: rgba(var(--accent-color-rgb), 0.08);
+}
+
+.emptyState,
+.errorState {
+  padding: 20px 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 14px;
+}
+
+.errorState {
+  color: #ff9b8a;
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 32px 24px 48px;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .repoLink {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .card {
+    gap: 12px;
+  }
+
+  .cardTitle {
+    font-size: 18px;
+  }
+}
