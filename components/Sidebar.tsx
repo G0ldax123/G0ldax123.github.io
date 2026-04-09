@@ -16,16 +16,16 @@ import styles from '@/styles/Sidebar.module.css';
 import { contentSections } from '@/data/navigation';
 
 const sidebarTopItems = [
-  { Icon: VscFiles, path: '/' },
-  { Icon: VscCode, path: '/dev' },
-  { Icon: VscEdit, path: '/blog' },
-  { Icon: VscGithubAlt, path: '/bugbounty' },
-  { Icon: VscMail, path: '/ctf' },
+  { Icon: VscFiles, key: 'files' },
+  { Icon: VscCode, key: 'code' },
+  { Icon: VscEdit, key: 'edit' },
+  { Icon: VscGithubAlt, key: 'github' },
+  { Icon: VscMail, key: 'mail' },
 ];
 
 const sidebarBottomItems = [
-  { Icon: VscAccount, path: '/paper' },
-  { Icon: VscSettings, path: '/cert' },
+  { Icon: VscAccount, key: 'account' },
+  { Icon: VscSettings, key: 'settings' },
 ];
 
 const Sidebar = () => {
@@ -36,11 +36,11 @@ const Sidebar = () => {
   return (
     <aside className={styles.sidebar}>
       <div className={styles.sidebarTop}>
-        {sidebarTopItems.map(({ Icon, path }) => {
-          const isActive = path === '/' ? isContentRoute : false;
+        {sidebarTopItems.map(({ Icon, key }, index) => {
+          const isActive = index === 0 ? isContentRoute : false;
 
           return (
-            <Link href={path} key={path}>
+            <Link href="/" key={key}>
               <div
                 className={`${styles.iconContainer} ${
                   isActive && styles.active
@@ -61,9 +61,9 @@ const Sidebar = () => {
         })}
       </div>
       <div className={styles.sidebarBottom}>
-        {sidebarBottomItems.map(({ Icon, path }) => (
-          <div className={styles.iconContainer} key={path}>
-            <Link href={path}>
+        {sidebarBottomItems.map(({ Icon, key }) => (
+          <div className={styles.iconContainer} key={key}>
+            <Link href="/">
               <Icon
                 fill={'rgb(106, 115, 125)'}
                 className={styles.icon}

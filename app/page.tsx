@@ -18,9 +18,11 @@ export default function HomePage() {
           </div>
 
           <div className={styles.intro}>
+            <p className={styles.greeting}>WELCOME TO</p>
+
             <h1 className={styles.name}>ax123{'\uC758'} {'\uBE14\uB85C\uADF8'}</h1>
 
-            <p className={styles.role}>{'\uBCF4\uC548 \u00B7 \uAC1C\uBC1C. \uD559\uC2B5 \uAE30\uB85D'}</p>
+            <p className={styles.role}>{'\uBCF4\uC548 \u00B7 \uAC1C\uBC1C \u00B7 \uD559\uC2B5 \uAE30\uB85D'}</p>
 
             <div className={styles.divider} />
 

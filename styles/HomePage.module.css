@@ -57,6 +57,15 @@
   gap: 16px;
 }
 
+.greeting {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: var(--font-mono);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
 .name {
   margin: 0;
   font-size: 64px;
