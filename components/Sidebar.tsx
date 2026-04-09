@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -16,15 +16,15 @@ import styles from '@/styles/Sidebar.module.css';
 
 const sidebarTopItems = [
   { Icon: VscFiles, path: '/' },
-  { Icon: VscGithubAlt, path: '/github' },
-  { Icon: VscCode, path: '/projects' },
-  { Icon: VscEdit, path: '/articles' },
-  { Icon: VscMail, path: '/contact' },
+  { Icon: VscCode, path: '/dev' },
+  { Icon: VscEdit, path: '/blog' },
+  { Icon: VscGithubAlt, path: '/bugbounty' },
+  { Icon: VscMail, path: '/ctf' },
 ];
 
 const sidebarBottomItems = [
-  { Icon: VscAccount, path: '/about' },
-  { Icon: VscSettings, path: '/settings' },
+  { Icon: VscAccount, path: '/paper' },
+  { Icon: VscSettings, path: '/cert' },
 ];
 
 const Sidebar = () => {

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useRef, useEffect } from 'react';
 import { VscTerminal, VscClose } from 'react-icons/vsc';
@@ -15,9 +15,9 @@ const commands: Record<string, () => string[]> = {
   help: () => [
     'Available commands:',
     '  help      - Show this help message',
-    '  about     - About me',
-    '  skills    - My technical skills',
-    '  projects  - View my projects',
+    '  about     - About this blog',
+    '  skills    - Current interests',
+    '  projects  - View blog sections',
     '  contact   - Contact information',
     '  theme     - Change theme (usage: theme <name>)',
     '  themes    - List available themes',
@@ -29,34 +29,31 @@ const commands: Record<string, () => string[]> = {
     '  echo      - Echo text (usage: echo <text>)',
   ],
   about: () => [
-    "Hi, I'm Nitin!",
-    'A passionate full-stack developer who loves building beautiful,',
-    'functional web applications. This portfolio is styled like VS Code',
-    'because I spend most of my time here anyway.',
+    "Hi, I'm ax123!",
+    'This blog collects development notes, security write-ups,',
+    'and references worth revisiting later.',
   ],
   skills: () => [
-    'Technical Skills:',
-    '  Languages:  TypeScript, JavaScript, Python, Go, Rust',
-    '  Frontend:   React, Next.js, Vue, Tailwind CSS',
-    '  Backend:    Node.js, Express, FastAPI, GraphQL',
-    '  Database:   PostgreSQL, MongoDB, Redis',
-    '  DevOps:     Docker, Kubernetes, AWS, GitHub Actions',
-    '  Tools:      VS Code, Git, Figma, Linux',
+    'Current Focus:',
+    '  Security:   CTF, Wargame, Bug Bounty',
+    '  Dev:        Next.js, TypeScript, frontend experiments',
+    '  Notes:      Technical documents, papers, conference takeaways',
   ],
   projects: () => [
-    'Featured Projects:',
-    '  1. vscode-portfolio - This portfolio you are viewing!',
-    '  2. Various open-source contributions',
-    '  3. Full-stack web applications',
+    'Blog Sections:',
+    '  1. dev        - Development notes',
+    '  2. ctf        - CTF / Wargame write-ups',
+    '  3. bugbounty  - Research and bounty notes',
+    '  4. blog       - Blog posts and tech docs',
+    '  5. paper      - Papers and conference notes',
+    '  6. cert       - Awards and certifications',
     '',
-    'Visit the Projects tab for more details.',
+    'Open a tab from the explorer to read more.',
   ],
   contact: () => [
     'Contact Information:',
-    '  Email:    hello@example.com',
-    '  GitHub:   github.com/itsnitinr',
-    '  Twitter:  @itsnitinr',
-    '  LinkedIn: linkedin.com/in/itsnitinr',
+    '  GitHub:   github.com/G0ldax123',
+    '  Repo:     github.com/G0ldax123/G0ldax123.github.io',
   ],
   themes: () => [
     'Available themes:',
@@ -65,9 +62,9 @@ const commands: Record<string, () => string[]> = {
     'Use "theme <name>" to change theme.',
   ],
   date: () => [new Date().toString()],
-  whoami: () => ['visitor@portfolio ~ exploring awesome projects'],
-  ls: () => ['about/', 'projects/', 'skills/', 'contact/', 'README.md'],
-  pwd: () => ['/home/visitor/portfolio'],
+  whoami: () => ['visitor@ax123-blog ~ browsing notes'],
+  ls: () => ['blog/', 'dev/', 'ctf/', 'bugbounty/', 'paper/', 'cert/', 'README.md'],
+  pwd: () => ['/home/visitor/ax123-blog'],
 };
 
 const processCommand = (input: string): TerminalLine[] => {
@@ -109,7 +106,7 @@ const processCommand = (input: string): TerminalLine[] => {
 
   if (commands[cmd]) {
     const output = commands[cmd]();
-    output.forEach(line => {
+    output.forEach((line) => {
       lines.push({ type: 'output', content: line });
     });
   } else {
@@ -155,11 +152,11 @@ const Terminal = ({ onToggle }: TerminalProps) => {
       setLines([]);
     } else {
       const newLines = processCommand(input);
-      setLines(prev => [...prev, ...newLines]);
+      setLines((prev) => [...prev, ...newLines]);
     }
 
     if (trimmed) {
-      setCommandHistory(prev => [...prev, trimmed]);
+      setCommandHistory((prev) => [...prev, trimmed]);
     }
     setHistoryIndex(-1);
     setInput('');
@@ -222,7 +219,7 @@ const Terminal = ({ onToggle }: TerminalProps) => {
             ref={inputRef}
             type="text"
             value={input}
-            onChange={e => setInput(e.target.value)}
+            onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
             className={styles.input}
             autoComplete="off"

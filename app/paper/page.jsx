@@ -1,8 +1,8 @@
-const Page = () => {
+﻿const Page = () => {
   return (
     <div>
-      <h1>논문/컨퍼런스</h1>
-      <p>이곳에 내용이 작성될 예정입니다.</p>
+      <h1>{'\uB17C\uBB38 / \uCEE8\uD37C\uB7F0\uC2A4'}</h1>
+      <p>{'\uC778\uC0C1 \uAE4A\uC740 \uB17C\uBB38\uACFC \uBC1C\uD45C \uB0B4\uC6A9\uC744 \uC815\uB9AC\uD558\uB294 \uACF5\uAC04\uC73C\uB85C \uC0AC\uC6A9\uD560 \uC608\uC815\uC785\uB2C8\uB2E4.'}</p>
     </div>
   );
 };

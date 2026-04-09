@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useState, useCallback } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
@@ -25,7 +25,7 @@ const Layout = ({ children }: LayoutProps) => {
   const [chordKey, setChordKey] = useState<string | null>(null);
 
   const toggleTerminal = useCallback(() => {
-    setIsTerminalOpen(prev => !prev);
+    setIsTerminalOpen((prev) => !prev);
   }, []);
 
   const openCommandPalette = useCallback(() => {
@@ -45,13 +45,13 @@ const Layout = ({ children }: LayoutProps) => {
 
   useEffect(() => {
     const navigationRoutes: Record<string, string> = {
-      'h': '/',
-      'a': '/about',
-      'p': '/projects',
-      'r': '/articles',
-      'c': '/contact',
-      'g': '/github',
-      's': '/settings',
+      h: '/',
+      d: '/dev',
+      t: '/ctf',
+      b: '/blog',
+      u: '/bugbounty',
+      p: '/paper',
+      c: '/cert',
     };
 
     const handleKeyDown = (e: KeyboardEvent) => {

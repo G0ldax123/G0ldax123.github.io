@@ -1,8 +1,20 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { VscSymbolColor, VscTerminal, VscFiles, VscGoToFile, VscGear, VscColorMode, VscHome, VscAccount, VscCode, VscBook, VscMail, VscGithubAlt } from 'react-icons/vsc';
+import {
+  VscSymbolColor,
+  VscTerminal,
+  VscGoToFile,
+  VscGear,
+  VscColorMode,
+  VscHome,
+  VscAccount,
+  VscCode,
+  VscBook,
+  VscMail,
+  VscGithubAlt,
+} from 'react-icons/vsc';
 import { MdNavigateNext } from 'react-icons/md';
 
 import { THEMES } from '@/lib/themes';
@@ -43,52 +55,52 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
         action: () => router.push('/'),
       },
       {
-        id: 'go-about',
-        label: 'Go to About',
+        id: 'go-dev',
+        label: 'Go to Dev Notes',
         category: 'Navigation',
-        shortcut: 'G A',
-        icon: <VscAccount size={16} />,
-        action: () => router.push('/about'),
+        shortcut: 'G D',
+        icon: <VscCode size={16} />,
+        action: () => router.push('/dev'),
       },
       {
-        id: 'go-projects',
-        label: 'Go to Projects',
+        id: 'go-ctf',
+        label: 'Go to CTF / Wargame',
+        category: 'Navigation',
+        shortcut: 'G T',
+        icon: <VscMail size={16} />,
+        action: () => router.push('/ctf'),
+      },
+      {
+        id: 'go-blog',
+        label: 'Go to Blog Docs',
+        category: 'Navigation',
+        shortcut: 'G B',
+        icon: <VscBook size={16} />,
+        action: () => router.push('/blog'),
+      },
+      {
+        id: 'go-bugbounty',
+        label: 'Go to Bug Bounty',
+        category: 'Navigation',
+        shortcut: 'G U',
+        icon: <VscGithubAlt size={16} />,
+        action: () => router.push('/bugbounty'),
+      },
+      {
+        id: 'go-paper',
+        label: 'Go to Papers / Conference',
         category: 'Navigation',
         shortcut: 'G P',
-        icon: <VscCode size={16} />,
-        action: () => router.push('/projects'),
+        icon: <VscAccount size={16} />,
+        action: () => router.push('/paper'),
       },
       {
-        id: 'go-articles',
-        label: 'Go to Articles',
-        category: 'Navigation',
-        shortcut: 'G R',
-        icon: <VscBook size={16} />,
-        action: () => router.push('/articles'),
-      },
-      {
-        id: 'go-contact',
-        label: 'Go to Contact',
+        id: 'go-cert',
+        label: 'Go to Awards / Certs',
         category: 'Navigation',
         shortcut: 'G C',
-        icon: <VscMail size={16} />,
-        action: () => router.push('/contact'),
-      },
-      {
-        id: 'go-github',
-        label: 'Go to GitHub',
-        category: 'Navigation',
-        shortcut: 'G G',
-        icon: <VscGithubAlt size={16} />,
-        action: () => router.push('/github'),
-      },
-      {
-        id: 'go-settings',
-        label: 'Go to Settings',
-        category: 'Navigation',
-        shortcut: 'G S',
         icon: <VscGear size={16} />,
-        action: () => router.push('/settings'),
+        action: () => router.push('/cert'),
       },
       {
         id: 'toggle-terminal',
@@ -132,12 +144,10 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
           localStorage.setItem('theme', theme.theme);
           onClose();
         }
-      } else {
-        if (index < filteredCommands.length) {
-          filteredCommands[index].action();
-          if (filteredCommands[index].id !== 'change-theme') {
-            onClose();
-          }
+      } else if (index < filteredCommands.length) {
+        filteredCommands[index].action();
+        if (filteredCommands[index].id !== 'change-theme') {
+          onClose();
         }
       }
     },
@@ -160,6 +170,7 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
       }
 
       const items = showThemePicker ? filteredThemes : filteredCommands;
+      if (items.length === 0) return;
 
       if (e.key === 'ArrowDown') {
         e.preventDefault();
@@ -265,15 +276,13 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
             (() => {
               let lastCategory = '';
               let itemIndex = 0;
-              return filteredCommands.map((cmd, index) => {
+              return filteredCommands.map((cmd) => {
                 const showCategory = cmd.category !== lastCategory;
                 lastCategory = cmd.category;
                 const currentIndex = itemIndex++;
                 return (
                   <div key={cmd.id}>
-                    {showCategory && (
-                      <div className={styles.category}>{cmd.category}</div>
-                    )}
+                    {showCategory && <div className={styles.category}>{cmd.category}</div>}
                     <div
                       className={`${styles.item} ${
                         selectedIndex === currentIndex ? styles.selected : ''
@@ -311,7 +320,7 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
             <span className={styles.key}>↑↓</span> to navigate
           </div>
           <div className={styles.footerItem}>
-            <span className={styles.key}>↵</span> to select
+            <span className={styles.key}>enter</span> to select
           </div>
           <div className={styles.footerItem}>
             <span className={styles.key}>esc</span> to close
