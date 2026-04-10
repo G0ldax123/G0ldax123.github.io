@@ -1,12 +1,50 @@
 ﻿'use client';
 
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { VscArrowRight, VscCode, VscGithub } from 'react-icons/vsc';
+import { VscArrowRight, VscCode, VscCopy, VscGithub, VscMail } from 'react-icons/vsc';
 
 import { contentSections } from '@/data/navigation';
 import styles from '@/styles/HomePage.module.css';
 
 export default function HomePage() {
+  const email = 'kdo1206@korea.ac.kr';
+  const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
+  const contactRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (contactRef.current && !contactRef.current.contains(event.target as Node)) {
+        setIsContactOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    if (!isCopied) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setIsCopied(false);
+    }, 1800);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [isCopied]);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setIsCopied(true);
+    } catch {
+      setIsCopied(false);
+    }
+  };
+
   return (
     <div className={styles.page}>
       <div className={styles.container}>
@@ -42,6 +80,29 @@ export default function HomePage() {
               <span>GitHub</span>
               <VscArrowRight size={18} />
             </a>
+            <div className={styles.contactWrapper} ref={contactRef}>
+              <button
+                type="button"
+                className={styles.secondaryAction}
+                onClick={() => setIsContactOpen((prev) => !prev)}
+                aria-expanded={isContactOpen}
+                aria-haspopup="dialog"
+              >
+                <VscMail size={18} />
+                <span>Contact</span>
+              </button>
+
+              {isContactOpen && (
+                <div className={styles.contactPopover} role="dialog" aria-label="Contact information">
+                  <p className={styles.contactLabel}>E-mail</p>
+                  <p className={styles.contactEmail}>{email}</p>
+                  <button type="button" className={styles.copyButton} onClick={handleCopyEmail}>
+                    <VscCopy size={16} />
+                    <span>{isCopied ? 'Copied' : 'Copy'}</span>
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
 
           <div className={styles.links}>
