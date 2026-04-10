@@ -6,12 +6,19 @@ import styles from '@/styles/Titlebar.module.css';
 
 interface TitlebarProps {
   onOpenCommandPalette?: () => void;
+  onOpenTerminal?: () => void;
 }
 
-const Titlebar = ({ onOpenCommandPalette }: TitlebarProps) => {
+const Titlebar = ({ onOpenCommandPalette, onOpenTerminal }: TitlebarProps) => {
   const handleViewClick = () => {
     if (onOpenCommandPalette) {
       onOpenCommandPalette();
+    }
+  };
+
+  const handleTerminalClick = () => {
+    if (onOpenTerminal) {
+      onOpenTerminal();
     }
   };
 
@@ -30,7 +37,7 @@ const Titlebar = ({ onOpenCommandPalette }: TitlebarProps) => {
         <p onClick={handleViewClick} className={styles.menuItem} title="Open Command Palette (Ctrl+Shift+P)">View</p>
         <p>Go</p>
         <p>Run</p>
-        <p>Terminal</p>
+        <p onClick={handleTerminalClick} className={styles.menuItem} title="Open Terminal (Ctrl+`)">Terminal</p>
         <p>Help</p>
       </div>
       <p className={styles.title}>ax123 - Visual Studio Code</p>

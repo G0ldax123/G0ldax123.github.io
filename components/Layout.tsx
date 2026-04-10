@@ -24,6 +24,14 @@ const Layout = ({ children }: LayoutProps) => {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
   const [chordKey, setChordKey] = useState<string | null>(null);
 
+  const openTerminal = useCallback(() => {
+    setIsTerminalOpen(true);
+  }, []);
+
+  const closeTerminal = useCallback(() => {
+    setIsTerminalOpen(false);
+  }, []);
+
   const toggleTerminal = useCallback(() => {
     setIsTerminalOpen((prev) => !prev);
   }, []);
@@ -103,7 +111,7 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className={styles.layout}>
-      <Titlebar onOpenCommandPalette={openCommandPalette} />
+      <Titlebar onOpenCommandPalette={openCommandPalette} onOpenTerminal={openTerminal} />
       <div className={styles.main}>
         <Sidebar />
         <Explorer />
@@ -113,7 +121,7 @@ const Layout = ({ children }: LayoutProps) => {
             <main id="main-editor" className={styles.content}>
               {children}
             </main>
-            {isTerminalOpen && <Terminal onToggle={toggleTerminal} />}
+            {isTerminalOpen && <Terminal onToggle={closeTerminal} />}
           </div>
         </div>
       </div>

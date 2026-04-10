@@ -16,7 +16,6 @@ const commands: Record<string, () => string[]> = {
     'Available commands:',
     '  help      - Show this help message',
     '  about     - About this blog',
-    '  skills    - Current interests',
     '  projects  - View blog sections',
     '  contact   - Contact information',
     '  theme     - Change theme (usage: theme <name>)',
@@ -33,12 +32,6 @@ const commands: Record<string, () => string[]> = {
     'This blog collects development notes, security write-ups,',
     'and references worth revisiting later.',
   ],
-  skills: () => [
-    'Current Focus:',
-    '  Security:   CTF, Wargame, Bug Bounty',
-    '  Dev:        Next.js, TypeScript, frontend experiments',
-    '  Notes:      Technical documents, papers, conference takeaways',
-  ],
   projects: () => [
     'Blog Sections:',
     '  1. dev        - Development notes',
@@ -53,7 +46,7 @@ const commands: Record<string, () => string[]> = {
   contact: () => [
     'Contact Information:',
     '  GitHub:   github.com/G0ldax123',
-    '  Repo:     github.com/G0ldax123/G0ldax123.github.io',
+    '  E-mail:   kdo1206@korea.ac.kr',
   ],
   themes: () => [
     'Available themes:',
