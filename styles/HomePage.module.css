@@ -119,7 +119,9 @@
 .primaryAction {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  width: 168px;
   padding: 14px 28px;
   border-radius: 6px;
   font-size: 14px;
@@ -139,8 +141,10 @@
 .secondaryAction {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 14px 24px;
+  width: 168px;
+  padding: 14px 28px;
   border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.04);
