@@ -7,16 +7,14 @@ import '@/styles/themes.css';
 
 export const metadata: Metadata = {
   title: {
-    default: 'ax123\uC758 \uBE14\uB85C\uADF8',
+    default: "ax123's blog",
     template: 'ax123 | %s',
   },
-  description:
-    'ax123\uC758 \uAC1C\uBC1C\uACFC \uBCF4\uC548 \uAE30\uB85D\uC744 \uB2F4\uC740 \uBE14\uB85C\uADF8\uC785\uB2C8\uB2E4.',
+  description: "ax123's blog",
   keywords: ['ax123', 'blog', 'information security', 'CTF', 'BugBounty', 'wargame'],
   openGraph: {
-    title: 'ax123\uC758 \uBE14\uB85C\uADF8',
-    description:
-      'ax123\uC758 \uAC1C\uBC1C\uACFC \uBCF4\uC548 \uAE30\uB85D\uC744 \uB2F4\uC740 \uBE14\uB85C\uADF8\uC785\uB2C8\uB2E4.',
+    title: "ax123's blog",
+    description: "ax123's blog",
     url: 'https://g0ldax123.github.io',
   },
   twitter: {
