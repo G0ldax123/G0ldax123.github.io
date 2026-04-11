@@ -141,9 +141,7 @@ const Page = () => {
               </div>
 
               <p className={styles.subtitle}>
-                공개 레포 <code className={styles.inlineCode}>ctf-writeups</code> 와
-                연동해서 write-up 목록을 자동으로 불러옵니다. 새 글이 추가되면 이
-                페이지에서도 바로 확인할 수 있습니다.
+                클릭 시 해당 저장소로 이동합니다.
               </p>
             </div>
           </div>
