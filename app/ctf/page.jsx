@@ -121,7 +121,7 @@ const Page = () => {
 
             <div className={styles.headerContent}>
               <div className={styles.headerTop}>
-                <h1 className={styles.title}>CTF / Wargame</h1>
+                <h1 className={styles.title}>CTF/Wargame</h1>
                 <div className={styles.stats}>
                   <span className={styles.stat}>
                     <VscBook size={14} />
